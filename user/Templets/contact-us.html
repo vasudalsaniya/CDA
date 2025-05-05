@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <link href="static/CSS/index.css" type="text/css" rel="stylesheet" />
+    <link href="static/CSS/contact-us.css" rel="stylesheet" type="text/css">
+  <!--  <script src="JS/js.js" type="text/javascript"></script>-->
+    <!--<link href="https://unpkg.com/leaflet/dist/leaflet.css" rel="stylesheet" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>-->
+  </head>
+
+  <body>
+    <header>
+      <img src="static/Images/gujaratpolice.png" alt="Logo" class="logo">
+      <div class="title">
+        <h1>Crime Data Analysis</h1>
+        <h2>Govt. of Gujarat</h2>
+      </div>
+      <div class="menu-icon" onclick="toggleSidePanel()">
+        <div class="dots-container">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="side-panel" id="sidePanel">
+      <div class="close-icon" onclick="toggleSidePanel()">X</div>
+      <!-- Close icon -->
+      <a href="index">Home</a>
+      <a href="news">News</a>
+      <a href="reportcrime">Report a crime</a>
+      <a href="dashboard">My Profile</a>
+      <a href="contactus">Contact Us</a>
+      <a href="help">Help</a>
+    </div>
+
+    <div class="container">
+        <div class="left-side">
+            <h2 style="text-align: center;">Contact Us</h2>
+            <form action="contactus" method="POST">
+              {% csrf_token %}
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea></br>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+        <div class="right-side">
+            <h2>Contact Information</h2>
+           
+            <div class="contact-info">
+                <img src="static/Images/call.png" alt="Phone">
+                <p>Phone: +1234567890</p>
+            </div>
+            <div class="contact-info">
+                <img src="static/Images/mail.png" alt="mail">
+                <p>E-mail : crime.data.analysis.nlj@gmail.com</p>
+            </div>
+            <div class="contact-info">
+              <img src="static/Images/twitter.png" alt="Twitter">
+              <p>example@id</p>
+          </div>
+         
+          </div>
+  
+           
+        </div>
+    </div>
+
+    <footer class="footer">
+      <p>&copy; 2023 Crime Data Analysis</p>
+    </footer>
+  <script>
+          function toggleSidePanel() {
+  var sidePanel = document.getElementById('sidePanel');
+  var dotsContainer = document.getElementById('dotsContainer');
+  var closeIcon = document.querySelector('.close-icon');
+  if (sidePanel.style.right === '-350px') {
+    sidePanel.style.right = '0';
+    dotsContainer.style.display = 'none'; // Hide the dots when side panel is open
+    closeIcon.style.display = 'block'; // Show the close icon
+  } else {
+    sidePanel.style.right = '-350px';
+    dotsContainer.style.display = 'flex'; // Show the dots when side panel is closed
+    closeIcon.style.display = 'none'; // Hide the close icon
+  }
+}
+</script>
+  </body>
+</html>

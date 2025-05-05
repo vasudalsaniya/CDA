@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Latest News</title>
+    <link href="static/CSS/index.css" type="text/css" rel="stylesheet" />
+    <link href="static/CSS/news.css" type="text/css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+    />
+  </head>
+
+  <body>
+    <header>
+      <img src="static/Images/gujaratpolice.png" alt="Logo" class="logo" />
+      <div class="title">
+        <h1>Crime Data Analysis</h1>
+        <h2>Govt. of Gujarat</h2>
+      </div>
+      <div class="menu-icon" onclick="toggleSidePanel()">
+        <div class="dots-container">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="side-panel" id="sidePanel">
+      <div class="close-icon" onclick="toggleSidePanel()">X</div>
+      <!-- Close icon -->
+      <a href="index">Home</a>
+      <a href="news">News</a>
+      <a href="reportcrime">Report a crime</a>
+      <a href="dashboard">My Profile</a>
+      <a href="contactus">Contact Us</a>
+      <a href="help">Help</a>
+    </div>
+
+    <h1 class="latestnews">Latest News</h1>
+    <div class="cat-news-container">
+      <div class="cat-news">
+        <!-- Second category -->
+        <h2>Technology and Crime</h2>
+        <div class="row cn-slider">
+          <div class="col-md-6">
+            <div class="cn-img">
+              <img src="static/Images/Cyber Crime.jpeg" />
+              <div class="cn-title">
+                <a href="/urlfornews/?value=Technology_and_Crime"
+                  >Read more about "Technology & Crime"</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cat-news">
+        <!-- Third category -->
+        <h2>Law Enforcement Updates</h2>
+        <div class="row cn-slider">
+          <div class="col-md-6">
+            <div class="cn-img">
+              <img src="static/Images/Law & Enforcement.jpeg" />
+              <div class="cn-title">
+                <a href="/urlfornews/?value=Law_Enforcement_Updates"
+                  >Read more about "Law Enforcement Updates"</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cat-news">
+        <!-- Fourth category -->
+        <h2>Global Crime News</h2>
+        <div class="row cn-slider">
+          <div class="col-md-6">
+            <div class="cn-img">
+              <img src="static/Images/Global Crime.jpeg" />
+              <div class="cn-title">
+                <a href="/urlfornews/?value=Global_Crime_News"
+                  >Read more about "Global Crime News"</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cat-news">
+        <!-- Fifth category -->
+        <h2>Crime Research and Studies</h2>
+        <div class="row cn-slider">
+          <div class="col-md-6">
+            <div class="cn-img">
+              <img src="static/Images/Crime Research & Studies.jpeg" />
+              <div class="cn-title">
+                <a href="/urlfornews/?value=Crime_Research_and_Studies"
+                  >Read more about "Crime Research and Studies"</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cat-news">
+        <!-- Sixth category -->
+        <h2>Legal System</h2>
+        <div class="row cn-slider">
+          <div class="col-md-6">
+            <div class="cn-img">
+              <img src="static/Images/Legal System.jpeg" />
+              <div class="cn-title">
+                <a href="/urlfornews/?value=Legal_System"
+                  >Read more about "Legal System"</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cat-news">
+        <!-- Seventh category -->
+        <h2>Technology</h2>
+        <div class="row cn-slider">
+          <div class="col-md-6">
+            <div class="cn-img">
+              <img src="static/Images/Technology.jpeg" />
+              <div class="cn-title">
+                <a href="/urlfornews/?value=Technology"
+                  >Read more about "Technology"</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cat-news">
+        <!-- Eighth category -->
+        <h2>Politics</h2>
+        <div class="row cn-slider">
+          <div class="col-md-6">
+            <div class="cn-img">
+              <img src="static/Images/Politics.jpeg" />
+              <div class="cn-title">
+                <a href="/urlfornews/?value=Politics"
+                  >Read more about "Politics"</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cat-news">
+        <!-- Ninth category -->
+        <h2>Science and Environment</h2>
+        <div class="row cn-slider">
+          <div class="col-md-6">
+            <div class="cn-img">
+              <img src="static/Images/Science.jpeg" />
+              <div class="cn-title">
+                <a href="/urlfornews/?value=Science_and_Environment"
+                  >Read more about "Science and Environment"</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cat-news">
+        <!-- Tenth category -->
+        <h2>Education</h2>
+        <div class="row cn-slider">
+          <div class="col-md-6">
+            <div class="cn-img">
+              <img src="static/Images/Education.jpeg" />
+              <div class="cn-title">
+                <a href="/urlfornews/?value=Education"
+                  >Read more about "Education"</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cat-news">
+        <!-- First category -->
+        <h2>Others</h2>
+        <div class="row cn-slider">
+          <div class="col-md-6">
+            <div class="cn-img">
+              <img src="static/Images/Crime Trends.jpeg" />
+              <div class="cn-title">
+                <a href="/urlfornews/?value=Others">Read more about "Others"</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <p>&copy; 2023 Crime Data Analysis</p>
+    </footer>
+    <script>
+      function toggleSidePanel() {
+        var sidePanel = document.getElementById("sidePanel");
+        var dotsContainer = document.getElementById("dotsContainer");
+        var closeIcon = document.querySelector(".close-icon");
+        if (sidePanel.style.right === "-350px") {
+          sidePanel.style.right = "0";
+          dotsContainer.style.display = "none";
+          closeIcon.style.display = "block";
+        } else {
+          sidePanel.style.right = "-350px";
+          dotsContainer.style.display = "flex";
+          closeIcon.style.display = "none";
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var sliders = document.querySelectorAll(".cn-slider");
+        if (sliders.length > 0) {
+          sliders.forEach(function (slider) {
+            new Slick(slider, {
+              dots: true,
+              infinite: true,
+              speed: 300,
+              slidesToShow: 1,
+              adaptiveHeight: true,
+              prevArrow:
+                '<button type="button" class="slick-prev">&#9665;</button>' /* Unicode arrow */,
+              nextArrow:
+                '<button type="button" class="slick-next">&#9655;</button>' /* Unicode arrow */,
+            });
+          });
+        }
+      });
+    </script>
+
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+    ></script>
+  </body>
+</html>

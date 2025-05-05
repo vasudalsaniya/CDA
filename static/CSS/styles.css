@@ -1,0 +1,25 @@
+main {
+  padding: 20px;
+  max-width: 100%;
+}
+
+h2 {
+  color: #333;
+  border-bottom: 2px solid #333;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.article {
+  margin-bottom: 20px;
+}
+
+.article h3 {
+  color: #36454f;
+}
+
+.article p {
+  color: #777;
+}

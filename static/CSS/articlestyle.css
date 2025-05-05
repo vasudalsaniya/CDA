@@ -1,0 +1,159 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f4;
+  position: relative;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  height: 120px;
+  text-align: left;
+  padding: 1em 0;
+  padding-left: 30px;
+  display: flex;
+  flex-direction: row;
+  font-family: "Times new roman", sans-serif;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 60px;
+  height: 70px;
+  margin-right: 20px;
+}
+
+.title {
+  margin-right: 700px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 40px;
+}
+
+header h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #fff;
+  text-align: left;
+}
+
+.side-panel {
+  position: fixed;
+  top: 0;
+  right: -350px;
+  width: 250px;
+  height: 100%;
+  background-color: #333;
+  color: #333;
+  padding: 20px;
+  transition: right 0.3s ease;
+  font-size: 26px;
+  z-index: 1000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-left: 2px solid #333;
+}
+
+.side-panel a {
+  margin-top: 20px;
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 30px;
+}
+
+.close-icon {
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #fff;
+  font-size: 20px;
+}
+
+.menu-icon {
+  cursor: pointer;
+  padding: 15px;
+}
+
+.dots-container {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dot {
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+}
+
+main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.article {
+  flex: 2;
+}
+
+.article-content {
+  padding-right: 20px;
+}
+
+.article h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.article-content p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Image section styles */
+
+.image-section {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-section img {
+  width: 700px;
+  max-width: 100%;
+  height: 400px;
+  object-fit: cover;
+  margin-bottom: 100px;
+  margin-top: 30px;
+}
+
+.credit {
+  color: grey;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1em 0;
+  width: 100%;
+  margin-top: auto;
+}

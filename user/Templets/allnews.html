@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News Articles</title>
+    {% load static %}
+    <link
+      href="{% static 'CSS/allnews.css' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <header>
+      <img
+        src="{% static 'Images/gujaratpolice.png' %}"
+        alt="Logo"
+        class="logo"
+      />
+      <div class="title">
+        <h1>Crime Data Analysis</h1>
+        <h2>Govt. of Gujarat</h2>
+      </div>
+      <div class="menu-icon" onclick="toggleSidePanel()">
+        <div class="dots-container">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="side-panel" id="sidePanel">
+      <div class="close-icon" onclick="toggleSidePanel()">X</div>
+      <!-- Close icon -->
+      <a href="index">Home</a>
+      <a href="news">News</a>
+      <a href="reportcrime">Report a crime</a>
+      <a href="dashboard">My Profile</a>
+      <a href="contactus">Contact Us</a>
+      <a href="help">Help</a>
+    </div>
+
+    <div class="container">
+      <h1>News Articles</h1>
+      <ul>
+        {% for article in articles %}
+        <li>
+          <h2 class="article-title">{{ article.title }}</h2>
+          <p class="article-content">{{ article.content }}</p>
+          <a href="/articles/?content={{article.title}}" class="read-more-link">Read More</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <footer class="footer">
+      <p>&copy; 2023 Crime Data Analysis</p>
+    </footer>
+    <script>
+      function toggleSidePanel() {
+        var sidePanel = document.getElementById("sidePanel");
+        var dotsContainer = document.getElementById("dotsContainer");
+        var closeIcon = document.querySelector(".close-icon");
+        if (sidePanel.style.right === "-350px") {
+          sidePanel.style.right = "0";
+          dotsContainer.style.display = "none"; // Hide the dots when side panel is open
+          closeIcon.style.display = "block"; // Show the close icon
+        } else {
+          sidePanel.style.right = "-350px";
+          dotsContainer.style.display = "flex"; // Show the dots when side panel is closed
+          closeIcon.style.display = "none"; // Hide the close icon
+        }
+      }
+    </script>
+  </body>
+</html>

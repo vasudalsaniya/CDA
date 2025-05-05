@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add news</title>
+    {% load static %}
+    <link
+      href="{% static 'CSS/addnews.css' %}"
+      type="text/css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <img
+        src="{% static 'Images/gujaratpolice.png' %}"
+        alt="Logo"
+        class="logo"
+      />
+      <div class="title">
+        <h1>Crime Data Analysis</h1>
+        <h2>Govt. of Gujarat</h2>
+      </div>
+    </header>
+    <div class="option">
+      <h4><a href="dashboard">Dashboard</a></h4>
+      <h4><a href="addauth">Add Legal Authority</a></h4>
+      <h4><a href="auth">See Legal Authority</a></h4>
+      <h4><a href="addnews">Add News</a></h4>
+    </div>
+    <div class="main-content">
+      <form action="addnews" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+          <tr>
+            <th colspan="2">Add News</th>
+          </tr>
+          <tr>
+            <td><label for="title">Title:</label></td>
+            <td><input type="text" id="title" name="title" required /></td>
+          </tr>
+          <tr>
+            <td><label for="content">Content:</label></td>
+            <td>
+              <textarea
+                id="content"
+                name="content"
+                rows="6"
+                required
+              ></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td><label for="author">Author:</label></td>
+            <td><input type="text" id="author" name="author" required /></td>
+          </tr>
+          <tr>
+            <td><label for="pubdate">Publication Date:</label></td>
+            <td>
+              <input
+                type="date"
+                id="pubdate"
+                name="pubdate"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td><label for="category">Category:</label></td>
+            <td>
+              <select id="category" name="category" required>
+                <option value="" selected>Select a category</option>
+                <option value="Technology_and_Crime">
+                  Technology and Crime
+                </option>
+                <option value="Law_Enforcement_Updates">
+                  Law Enforcement Updates
+                </option>
+                <option value="Global_Crime_News">Global Crime News</option>
+                <option value="Crime_Research_and_Studies">
+                  Crime Research and Studies
+                </option>
+                <option value="Legal_System">Legal System</option>
+                <option value="Technology">Technology</option>
+                <option value="Politics">Politics</option>
+                <option value="Science_and_Environment">
+                  Science and Environment
+                </option>
+                <option value="Education">Education</option>
+                <option value="Others">Other</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td rowspan="5"><label for="img1">Add Images Related to news:</br>(Only .jpg .jpeg .png formats</br> upto 10 MB are supported)</br>(Atleast one is mandatory)</label></td>
+            <td>
+                <input type="file" accept=".jpg, .jpeg, .png" id="img1" name="img1" max-size="10485760" required>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <input type="file" accept=".jpg, .jpeg, .png" id="img2" name="img2" max-size="10485760">
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <input type="file" accept=".jpg, .jpeg, .png" id="img3" name="img3" max-size="10485760">
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <input type="file" accept=".jpg, .jpeg, .png" id="img4" name="img4" max-size="10485760">
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <input type="file" accept=".jpg, .jpeg, .png" id="img5" name="img5" max-size="10485760">
+            </td>
+          </tr>  
+          <tr>
+            <td><label for="source">Source:</label></td>
+            <td><input type="text" id="source" name="source" /></td>
+          </tr>
+          <tr>
+            <td><label for="url">URL:</label></td>
+            <td><input type="url" id="url" name="url" /></td>
+          </tr>
+
+          <tr>
+            <td colspan="2" style="text-align: center">
+              <button type="submit">Submit</button>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+    <footer class="footer">
+      <p>&copy; 2023 Crime Data Analysis</p>
+    </footer>
+  </body>
+</html>

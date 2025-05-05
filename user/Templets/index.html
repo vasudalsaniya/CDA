@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to our site!</title>
+    <link href="static/CSS/index.css" type="text/css" rel="stylesheet" />
+    <!--  <script src="JS/js.js" type="text/javascript"></script>-->
+    <!--<link href="https://unpkg.com/leaflet/dist/leaflet.css" rel="stylesheet" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>-->
+  </head>
+
+  <body>
+    <header>
+      <img src="static/Images/gujaratpolice.png" alt="Logo" class="logo" />
+      <div class="title">
+        <h1>Crime Data Analysis</h1>
+        <h2>Govt. of Gujarat</h2>
+      </div>
+      <div class="menu-icon" onclick="toggleSidePanel()">
+        <div class="dots-container">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="side-panel" id="sidePanel">
+      <div class="close-icon" onclick="toggleSidePanel()">X</div>
+      <!-- Close icon -->
+      <a href="index">Home</a>
+      <a href="news">News</a>
+      <a href="reportcrime">Report a crime</a>
+      <a href="dashboard">My Profile</a>
+      <a href="contactus">Contact Us</a>
+      <a href="help">Help</a>
+    </div>
+
+    <div class="slideshow-container">
+      <div class="mySlides fade">
+        <img
+          src="static/Images/slide1.jpg"
+          style="width: 100%"
+          class="responsive"
+        />
+      </div>
+
+      <div class="mySlides fade">
+        <img
+          src="static/Images/slide2.jpg"
+          style="width: 100%"
+          class="responsive"
+        />
+      </div>
+
+      <div class="mySlides fade">
+        <img
+          src="static/Images/slide3.jpg"
+          style="width: 100%"
+          class="responsive"
+        />
+      </div>
+
+      <a class="prev" onclick="plusSlides(-1)">❮</a>
+      <a class="next" onclick="plusSlides(1)">❯</a>
+    </div>
+    <br />
+    <div style="text-align: center">
+      <span class="dots" onclick="currentSlide(1)"></span>
+      <span class="dots" onclick="currentSlide(2)"></span>
+      <span class="dots" onclick="currentSlide(3)"></span>
+    </div>
+    <div class="content">
+      <div class="header-container">
+        <h1>Welcome to Crime Data Analysis</h1>
+      </div>
+      <p>
+        "Welcome to our Crime Data Analysis project, where we harness the power
+        of data to enhance community safety. Through cutting-edge analysis
+        techniques, we provide insights into crime patterns and trends,
+        empowering individuals and authorities with actionable information.
+        Explore our platform to stay informed,view daily news , report
+        incidents, and delve into comprehensive crime analysis for a safer
+        tomorrow."
+      </p>
+    </div>
+
+    <div class="header-container"><h1>Our services</h1></div>
+    <div class="service-container">
+      <div class="service-image">
+        <h2>Latest News</h2>
+        <p>Stay updated with the latest crime news and trends in your area.</p>
+        <img src="static/Images/service-news.jpg" alt="Image 1" />
+
+        <div class="service-overlay">
+          <a href="news" class="service-button">Read News</a>
+        </div>
+      </div>
+
+      <div class="service-image">
+        <h2>Report Crime</h2>
+        <p>
+          Help keep your community safe by reporting any suspicious activity.
+        </p>
+        <img src="static/Images/service-report.jpg" alt="Image 2" />
+
+        <div class="service-overlay">
+          <a href="reportcrime" class="service-button">Report Crime</a>
+        </div>
+      </div>
+
+      <div class="service-image">
+        <h2>Crime Analysis</h2>
+        <p>
+          Explore crime data and analyze patterns to understand crime features.
+        </p>
+        <img src="static/Images/service-analysis.png" alt="Image 3" />
+
+        <div class="service-overlay">
+          <a href="#" class="service-button">View Analysis</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-container"><h1>About Us</h1></div>
+    <p>
+      "At Crime Data Analysis , we are dedicated to utilizing advanced data
+      analytics to address the pressing issue of crime in our communities. we
+      have developed this platform to provide comprehensive insights into crime
+      data. Our team of experts, driven by a passion for social impact, is
+      committed to empowering individuals, law enforcement agencies, and
+      policymakers with actionable information derived from thorough analysis.
+      Together, we strive to create a safer and more secure future for all."
+    </p>
+
+    <div class="header-container"><h1>About the devloper</h1></div>
+    <br />
+    <div class="row">
+      <div class="column">
+        <div class="card1">
+          <img
+            src="static/Images/profileimage.jpg"
+            alt="Anjali"
+            style="width: 100%"
+          />
+          <div class="team-container">
+            <h2>Anjali</h2>
+            <h3 class="titles">Back-end Developer</h3>
+            <p>anjalijpatel000@gmail.com</p>
+            <p><button class="button">Contact</button></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card1">
+          <img
+            src="static/Images/profileimage.jpg"
+            alt="Shreya"
+            style="width: 100%"
+          />
+          <div class="team-container">
+            <h2>Shreya</h2>
+            <h3 class="titles">Front-end Developer</h3>
+            <p>janishreya08@gmail.com</p>
+            <p><button class="button">Contact</button></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card1">
+          <img
+            src="static/Images/profileimage.jpg"
+            alt="Dhara"
+            style="width: 100%"
+          />
+          <div class="team-container">
+            <h2>Dhara</h2>
+            <h3 class="titles">Data Analyst</h3>
+            <p>dharabakotara73@gmail.com</p>
+            <p><button class="button">Contact</button></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="column">
+        <div class="card1">
+          <img
+            src="static/Images/profileimage.jpg"
+            alt="Jenci"
+            style="width: 100%"
+          />
+          <div class="team-container">
+            <h2>Jenci</h2>
+            <h3 class="titles">Documentation Specialist</h3>
+            <p>topiyajenci27@gmail.com</p>
+            <p><button class="button">Contact</button></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <p>&copy; 2023 Crime Data Analysis</p>
+    </footer>
+    <script>
+      function toggleSidePanel() {
+        var sidePanel = document.getElementById("sidePanel");
+        var dotsContainer = document.getElementById("dotsContainer");
+        var closeIcon = document.querySelector(".close-icon");
+        if (sidePanel.style.right === "-350px") {
+          sidePanel.style.right = "0";
+          dotsContainer.style.display = "none"; // Hide the dots when side panel is open
+          closeIcon.style.display = "block"; // Show the close icon
+        } else {
+          sidePanel.style.right = "-350px";
+          dotsContainer.style.display = "flex"; // Show the dots when side panel is closed
+          closeIcon.style.display = "none"; // Hide the close icon
+        }
+      }
+
+      let slideIndex = 1;
+      showSlides(slideIndex);
+
+      function plusSlides(n) {
+        showSlides((slideIndex += n));
+      }
+
+      function currentSlide(n) {
+        showSlides((slideIndex = n));
+      }
+
+      function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+          slideIndex = 1;
+        }
+        if (n < 1) {
+          slideIndex = slides.length;
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+
+        setInterval(function () {
+          plusSlides(1);
+        }, 10000);
+      }
+    </script>
+  </body>
+</html>

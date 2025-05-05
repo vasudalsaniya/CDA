@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Login</title>
+    {% load static %}
+    <link
+      href="{% static 'CSS/alogin.css' %}"
+      type="text/css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="login-box">
+          <div class="col-lg-12 login-key">
+            <i class="fa fa-key" aria-hidden="true"></i>
+          </div>
+          <div class="login-title">ADMIN PANEL</div>
+
+          <div class="login-form">
+            <form action="alogin" method="POST">
+              {% csrf_token %}
+              <div class="form-group">
+                <label class="form-control-label">USERNAME</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="uname"
+                  name="uname"
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-control-label">PASSWORD</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="pass"
+                  name="pass"
+                />
+              </div>
+
+              {% if msg %}
+              <p style="color: red; font-size: large"><b>{{msg}}</b></p>
+              {% endif %}
+              <div class="loginbttm">
+                <div class="login-btm login-text"></div>
+                <div class="login-btm login-button">
+                  <button type="submit" class="btn btn-outline-primary">
+                    LOGIN
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

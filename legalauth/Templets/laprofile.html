@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Authority Details</title>
+    {% load static %}
+    <link
+      href="{% static 'CSS/laprofile.css' %}"
+      type="text/css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <img
+        src="{% static 'Images/gujaratpolice.png' %}"
+        alt="Logo"
+        class="logo"
+      />
+      <div class="title">
+        <h1>Crime Data Analysis</h1>
+        <h2>Govt. of Gujarat</h2>
+      </div>
+    </header>
+    <div class="option">
+      <h4><a href="ladashboard">Dashboard</a></h4>
+      <h4><a href="profile">My Profile</a></h4>
+      <h4><a href="#">Crime Rate</a></h4>
+    </div>
+    <div class="main-content">
+      <table>
+        <tr>
+          <th colspan="2">Legal Authority Details</th>
+        </tr>
+        <tr>
+          <td>Email:</td>
+          <td>{{email}}</td>
+        </tr>
+        <tr>
+          <td>Password:</td>
+          <td>{{passwd}}</td>
+        </tr>
+        <tr>
+          <td>Department:</td>
+          <td>{{dept}}</td>
+        </tr>
+        <tr>
+          <td colspan="2" style="font-size: large; font-weight: bold">
+            Physical address of department
+          </td>
+        </tr>
+        <tr>
+          <td>Area:</td>
+          <td>{{area}}</td>
+        </tr>
+        <tr>
+          <td>City:</td>
+          <td>{{city}}</td>
+        </tr>
+        <tr>
+          <td>State:</td>
+          <td>{{state}}</td>
+        </tr>
+        <tr>
+          <td>Pin Code:</td>
+          <td>{{pin}}</td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align: center">
+            <form action="logout" method="POST">
+              {% csrf_token %}
+              <button type="submit" id="logout" style="width: 100px">
+                Log-out
+              </button>
+            </form>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <footer class="footer">
+      <p>&copy; 2023 Crime Data Analysis</p>
+    </footer>
+  </body>
+</html>

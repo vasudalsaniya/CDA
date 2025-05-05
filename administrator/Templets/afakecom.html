@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Complaint Details</title>
+    {% load static %}    
+    <link href="{% static 'CSS/lacrimedetails.css' %}" type="text/css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <header>
+      <img
+        src="{% static 'Images/gujaratpolice.png' %}"
+        alt="Logo"
+        class="logo"
+      />
+      <div class="title">
+        <h1>Crime Data Analysis</h1>
+        <h2>Govt. of Gujarat</h2>
+      </div>
+    </header>
+    <div class="option">
+        <h4><a href="dashboard">Dashboard</a></h4>
+        <h4><a href="addauth">Add Legal Authority</a></h4>
+        <h4><a href="auth">See Legal Authority</a></h4>
+        <h4><a href="addnews">Add News</a></h4>
+      </div>
+    <div class="main-content">
+        <h2 style="text-align: center;">Complaint-Details</h2>
+        <table>
+            <tr>
+                <th colspan="2">Personal/Victim Information</th>
+            </tr>
+            <tr>
+                <td>Full Name:</td>
+                <td><label>{{rcfname}}</label></td>
+            </tr>
+            <tr>
+                <td>Phone no:</td>
+                <td><label>{{rcphone}}</label></td>
+            </tr>
+            <tr>
+                <td>DOB:</td>
+                <td><label>{{rcdob}}</label></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><label>{{rcemail}}</label></td>
+            </tr>
+            <tr>
+                <td>Gender:</td>
+                <td><label>{{rcgender}}</label></td>
+            </tr>
+            <tr>
+                <td>ID Proof:</td>
+                <td><label><a href="media/{{rcid}}">Click to see</a></label></td>
+            </tr>
+            <tr>
+                <th colspan="2">Incident Details</th>
+            </tr>
+            <tr>
+                <td>Category of crime:</td>
+                <td><label>{{rccategory}}</label></td>
+            </tr>
+            {% if rcspecify %}
+            <tr>
+                <td>Specify:</td>
+                <td><label>{{rcspecify}}</label></td>
+            </tr>
+            {% endif %}
+            <tr>
+                <td>Where did the Incident Occur?</td>
+                <td><label>{{rcsocial}}</label></td>
+            </tr>
+            <tr>
+                <td>Incident Date:</td>
+                <td><label>{{rcincidate}}</label></td>
+            </tr>
+            <tr>
+                <td>Incident Time:</td>
+                <td><label>{{rcincitime}}</label></td>
+            </tr>
+            <tr>
+                <td>Was is one time crime or ongoing?</td>
+                <td><label>{{rconetime}}</label></td>
+            </tr>
+            <tr>
+                <td>Have you lost money?</td>
+                <td><label>{{rclostmoney}}</label></td>
+            </tr>
+            <tr>
+                <td colspan="2"><b>Incident Address</b></td>
+            </tr>
+            <tr>
+                <td>Street:</td>
+                <td><label>{{rcstreet}}</label></td>
+            </tr>
+            <tr>
+                <td>Area:</td>
+                <td><label>{{rcarea}}</label></td>
+            </tr>
+            <tr>
+                <td>Area of Report:</td>
+                <td><label>{{rcarea1}}</label></td>
+            </tr>
+            <tr>
+                <td>City:</td>
+                <td><label>{{rccity}}</label></td>
+            </tr>
+            <tr>
+                <td>State:</td>
+                <td><label>{{rcstate}}</label></td>
+            </tr>
+            <tr>
+                <td>Explain in detail what happended?</td>
+                <td><label>{{rcdetail}}</label></td>
+            </tr>
+            <tr>
+                <td>Were there any weapons involved?</td>
+                <td><label>{{rcweapon}}</label></td>
+            </tr>
+            <tr>
+                <th colspan="2">Suspect Information</th>
+            </tr>
+            <tr>
+                <td>Do you know the identity of suspect(s)?</td>
+                <td><label>{{rcidentity}}</label></td>
+            </tr>
+            <tr>
+                <td>Can you provide a description of </br>the suspect(s)? </td>
+                <td><label>{{rcdesc}}</label></td>
+            </tr>
+            <tr>
+                <td>If digital fraud, can you provide </br> Bank account details/UPI ID/</br>
+                    Transaction ID/Phone number of suspect?</td>
+                <td><label>{{rcbank}}</label></td>
+            </tr>
+            <tr>
+                <td>Do you have any evidence or documentation</br>
+                    related to the incident?</td>
+                    {% if rcproof%}
+                <td><label><a href="media/{{rcproof}}">Click to see</a></label></td>
+                    {% endif %}
+            </tr>
+            <tr>
+                <td>Is there anything else you would like</br>
+                    to add that may be relevant to the incident?</td>
+                <td><label>{{rcextra}}</label></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center">
+                    <button type="submit" id="back" name="back" style="width: 100px">BACK</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <footer class="footer">
+      <p>&copy; 2023 Crime Data Analysis</p>
+    </footer>
+    <script>
+        document.getElementById("back").addEventListener("click", function() {
+            window.location.href = "dashboard";
+        });
+        /*document.getElementById("update").addEventListener("click", function() {
+            window.location.href = "update";
+        });*/
+    </script>
+  </body>
+</html>

@@ -1,0 +1,226 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f4;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  height: 90px;
+  text-align: left;
+  padding: 1em 0;
+  padding-left: 30px;
+  display: flex;
+  flex-direction: row;
+  font-family: "Times new roman", sans-serif;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 60px;
+  height: 70px;
+  margin-right: 20px;
+}
+
+.title {
+  margin-right: 800px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 40px;
+}
+
+header h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #fff;
+}
+
+.option {
+  display: flex;
+  flex-direction: row;
+  background-color: #333;
+  margin-top: 20px;
+  color: #fff;
+}
+
+.option a {
+  margin-left: 30px;
+  color: #fff;
+  text-decoration: none;
+}
+.main-content {
+  max-width: 700px;
+  width: 100%;
+  margin-top: 20px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  margin-bottom: 70px;
+  align-self: center;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.col1 {
+  width: 50px;
+}
+.col2 {
+  width: 500px;
+}
+.col3 {
+  width: 100px;
+}
+.col4 {
+  width: 100px;
+}
+.col5 {
+  width: 200px;
+}
+
+th {
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(87, 108, 117) 0%,
+    rgb(37, 50, 55) 100.2%
+  );
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: large;
+  text-align: center;
+  align-self: center;
+}
+
+td {
+  padding: 10px;
+  text-align: left;
+}
+
+td:nth-child(1),
+th:nth-child(1) {
+  width: 200px;
+}
+
+td:nth-child(2),
+th:nth-child(2) {
+  width: 200px;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.dataheader {
+  font-weight: bolder;
+}
+
+.viewbtn {
+  max-width: 500px;
+  width: 30%;
+  padding: 10px 20px;
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(87, 108, 117) 0%,
+    rgb(37, 50, 55) 100.2%
+  );
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-sizing: border-box;
+  align-self: center;
+}
+
+.viewbtn:hover {
+  background-color: #555;
+}
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1em 0;
+  width: 100%;
+  margin-top: auto;
+}
+
+.btn {
+  height: 60px;
+  width: 300px;
+  margin: 20px auto;
+  box-shadow: 10px 10px 30px rgb(87, 108, 117);
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.login-box,
+.signup-box {
+  display: none;
+}
+
+.login,
+.signup {
+  font-size: 22px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  position: relative;
+  cursor: pointer;
+}
+
+.slider {
+  height: 60px;
+  width: 150px;
+  border-radius: 50px;
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(87, 108, 117) 0%,
+    rgb(37, 50, 55) 100.2%
+  );
+  position: absolute;
+  top: 263px;
+  left: 500px;
+  transition: all 0.5s ease-in-out;
+}
+
+.moveslider {
+  left: 650px;
+}
+
+.form-section {
+  width: 1000px;
+  display: flex;
+  position: relative;
+  transition: all 0.5s ease-in-out;
+  left: 0px;
+}
+
+.login-box,
+.signup-box {
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 0px;
+}

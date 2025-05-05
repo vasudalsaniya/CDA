@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All authorities</title>
+    {% load static %}
+    <link
+      href="{% static 'CSS/aaddauthority.css' %}"
+      type="text/css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <img
+        src="{% static 'Images/gujaratpolice.png' %}"
+        alt="Logo"
+        class="logo"
+      />
+      <div class="title">
+        <h1>Crime Data Analysis</h1>
+        <h2>Govt. of Gujarat</h2>
+      </div>
+    </header>
+    <div class="option">
+      <h4><a href="dashboard">Dashboard</a></h4>
+      <h4><a href="addauth">Add Legal Authority</a></h4>
+      <h4><a href="auth">See Legal Authority</a></h4>
+      <h4><a href="addnews">Add News</a></h4>
+    </div>
+    <div class="main-content">
+      <table id="dataTable">
+        <thead>
+          <tr>
+            <th colspan="5">Legal Authorities</th>
+          </tr>
+          <tr class="dataheader">
+            <td class="col1">Sr. No</td>
+            <td class="col2">Department</td>
+            <td class="col3">Area</td>
+            <td class="col4">View Data</td>
+          </tr>
+        </thead>
+        <tbody class="dataRows">
+          {% for i in data %}
+          <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{i.dept}}</td>
+            <td>{{i.area}}</td>
+            <td>
+              <form method="POST" action="viewauth">
+                {% csrf_token %}
+                <input type="hidden" value="{{i.email}}" name="email" />
+                <button type="submit" style="width: 100px">View</button>
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <footer class="footer">
+      <p>&copy; 2023 Crime Data Analysis</p>
+    </footer>
+  </body>
+</html>

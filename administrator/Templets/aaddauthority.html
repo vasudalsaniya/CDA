@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add authority</title>
+    {% load static %}
+    <link
+      href="{% static 'CSS/aaddauthority.css' %}"
+      type="text/css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <img
+        src="{% static 'Images/gujaratpolice.png' %}"
+        alt="Logo"
+        class="logo"
+      />
+      <div class="title">
+        <h1>Crime Data Analysis</h1>
+        <h2>Govt. of Gujarat</h2>
+      </div>
+    </header>
+    <div class="option">
+      <h4><a href="dashboard">Dashboard</a></h4>
+      <h4><a href="addauth">Add Legal Authority</a></h4>
+      <h4><a href="auth">See Legal Authority</a></h4>
+      <h4><a href="addnews">Add News</a></h4>
+    </div>
+    <div class="main-content">
+      <form action="addauth" method="POST">
+        {% csrf_token %}
+        <table>
+          <tr>
+            <th colspan="2">Add Legal Authority</th>
+          </tr>
+          <tr>
+            <td><label for="mail">Email:</label></td>
+            <td><input type="text" id="mail" name="mail" required /></td>
+          </tr>
+          <tr>
+            <td><label for="passwd">Password:</label></td>
+            <td>
+              <input type="password" id="passwd" name="passwd" required />
+            </td>
+          </tr>
+          <tr>
+            <td><label for="dept">Department:</label></td>
+            <td><input type="text" id="dept" name="dept" required /></td>
+          </tr>
+          <tr>
+            <td colspan="2" style="font-size: large; font-weight: bold">
+              Physical address of department
+            </td>
+          </tr>
+          <tr>
+            <td><label for="area">Area:</label></td>
+            <td><input type="text" id="area" name="area" required /></td>
+          </tr>
+          <tr>
+            <td><label for="city">City:</label></td>
+            <td><input type="text" id="city" name="city" required /></td>
+          </tr>
+          <tr>
+            <td><label for="state">State:</label></td>
+            <td><input type="text" id="state" name="state" required /></td>
+          </tr>
+          <tr>
+            <td><label for="pin">Pin Code:</label></td>
+            <td><input type="number" id="pin" name="pin" required /></td>
+          </tr>
+          {% if msg1 %}
+          <tr>
+            <td colspan="2">
+              <label style="color: red; font-size: large"
+                ><b>{{msg1}}</b></label
+              >
+            </td>
+          </tr>
+          {% endif %}
+          <tr>
+            <td colspan="2" style="text-align: center">
+              <button type="submit" style="width: 100px">Submit</button>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+    <footer class="footer">
+      <p>&copy; 2023 Crime Data Analysis</p>
+    </footer>
+  </body>
+</html>

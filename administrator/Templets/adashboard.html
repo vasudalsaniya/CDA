@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    {% load static %}
+    <link
+      href="{% static 'CSS/adashboard.css' %}"
+      type="text/css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <img
+        src="{% static 'Images/gujaratpolice.png' %}"
+        alt="Logo"
+        class="logo"
+      />
+      <div class="title">
+        <h1>Crime Data Analysis</h1>
+        <h2>Govt. of Gujarat</h2>
+      </div>
+    </header>
+    <div class="option">
+      <h4><a href="dashboard">Dashboard</a></h4>
+      <h4><a href="addauth">Add Legal Authority</a></h4>
+      <h4><a href="auth">See Legal Authority</a></h4>
+      <h4><a href="addnews">Add News</a></h4>
+    </div>
+    <div class="main-content">
+      <div class="slider"></div>
+      <div class="btn">
+        <button class="login">Pending Complaints</button>
+        <button class="signup">Completed Complaints</button>
+      </div>
+      <div class="form-section">
+        <div class="login-box">
+          <table id="dataTable">
+            <thead>
+              <tr>
+                <th colspan="6">Pending Complaint</th>
+              </tr>
+              <tr class="dataheader">
+                <td class="col1">Sr. No</td>
+                <td class="col2">Type of crime</td>
+                <td class="col3">Location of Crime</td>
+                <td class="col4">Area of report</td>
+                <td class="col5">Status</td>
+                <td class="col6">View Data</td>
+              </tr>
+            </thead>
+            <tbody class="dataRows">
+              {% for i in data1 %}{% if i.rcstatus not in data_list %}
+              <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ i.rccategory }}</td>
+                <td>{{ i.rcarea }}</td>
+                <td>{{ i.rcarea1 }}</td>
+                <td>{{ i.rcstatus}}</td>
+                <td>
+                  <form method="POST" action="viewcom">
+                    {% csrf_token %}
+                    <input type="hidden" name="email" value="{{i.rcemail}}" />
+                    <input type="hidden" name="date" value="{{i.rcincidate}}" />
+                    <input type="hidden" name="time" value="{{i.rcincitime}}" />
+                    <button type="submit" style="width: 100px" class="viewbtn">
+                      View
+                    </button>
+                  </form>
+                </td>
+              </tr>
+              {% endif %} {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+        <div class="signup-box">
+          <table id="dataTable">
+            <thead>
+              <tr>
+                <th colspan="6">Completed Complaints</th>
+              </tr>
+              <tr class="dataheader">
+                <td class="col1">Sr. No</td>
+                <td class="col2">Type of crime</td>
+                <td class="col3">Location of Crime</td>
+                <td class="col4">Area of report</td>
+                <td class="col5">Status</td>
+                <td class="col6">View Data</td>
+              </tr>
+            </thead>
+            <tbody class="dataRows">
+              {% for i in data1 %}{% if i.rcstatus in data_list %}
+              <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ i.rccategory }}</td>
+                <td>{{ i.rcarea }}</td>
+                <td>{{ i.rcarea1 }}</td>
+                <td>{{ i.rcstatus}}</td>
+                <td>
+                  <form method="POST" action="afake">
+                    {% csrf_token %}
+                    <input type="hidden" name="email" value="{{i.rcemail}}" />
+                    <input type="hidden" name="date" value="{{i.rcincidate}}" />
+                    <input type="hidden" name="time" value="{{i.rcincitime}}" />
+                    <button type="submit" style="width: 100px" class="viewbtn">
+                      View
+                    </button>
+                  </form>
+                </td>
+              </tr>
+              {% endif %} {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script>
+      let signup = document.querySelector(".signup");
+      let login = document.querySelector(".login");
+      let slider = document.querySelector(".slider");
+      let formSection = document.querySelector(".form-section");
+      let loginBox = document.querySelector(".login-box");
+      let signupBox = document.querySelector(".signup-box");
+
+      signupBox.style.display = "none";
+
+      signup.addEventListener("click", () => {
+        slider.classList.add("moveslider");
+        formSection.classList.add("form-section-move");
+        loginBox.style.display = "none";
+        signupBox.style.display = "flex";
+      });
+
+      login.addEventListener("click", () => {
+        slider.classList.remove("moveslider");
+        formSection.classList.remove("form-section-move");
+        signupBox.style.display = "none";
+        loginBox.style.display = "flex";
+      });
+    </script>
+    <footer class="footer">
+      <p>&copy; 2023 Crime Data Analysis</p>
+    </footer>
+  </body>
+</html>

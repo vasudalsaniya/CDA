@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Report Crime</title>
+    <link href="static/CSS/index.css" type="text/css" rel="stylesheet" />
+    <link href="static/CSS/reportcrime.css" type="text/css" rel="stylesheet" />
+    <!--  <script src="JS/js.js" type="text/javascript"></script>-->
+    <!--<link href="https://unpkg.com/leaflet/dist/leaflet.css" rel="stylesheet" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>-->
+  </head>
+
+  <body>
+    <header>
+      <img src="static/Images/gujaratpolice.png" alt="Logo" class="logo" />
+      <div class="title">
+        <h1>Crime Data Analysis</h1>
+        <h2>Govt. of Gujarat</h2>
+      </div>
+      <div class="menu-icon" onclick="toggleSidePanel()">
+        <div class="dots-container">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="side-panel" id="sidePanel">
+      <div class="close-icon" onclick="toggleSidePanel()">X</div>
+      <!-- Close icon -->
+      <a href="index">Home</a>
+      <a href="news">News</a>
+      <a href="reportcrime">Report a crime</a>
+      <a href="dashboard">My Profile</a>
+      <a href="contactus">Contact Us</a>
+      <a href="help">Help</a>
+    </div>
+
+    <div class="main-container">
+      <h2 style="text-align: center">Register Complaint</h2>
+      <div class="form-container">
+        <form action="reportcrime" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <table>
+          <tr>
+            <th colspan="2"><h3>Personal/Victim Information</h3></th>
+          </tr>
+          <tr>
+            <td><label for="name">Full Name:</br>(As per aadhar)</label></td>
+            <td><input type="text" id="name" name="name" value="{{rcfname}}" {% if make_readonly %} readonly="True" {% endif %}required /></td>
+          </tr>
+          <tr>
+            <td><label for="phone">Phone no.:</label></td>
+            <td><input type="number" id="phone" name="phone" pattern="\d{10}" value="{{rcphone}}" {% if make_readonly %} readonly="True" {% endif %} required /></td>
+          </tr>
+          <tr>
+            <td><label for="dob">DOB:</label></td>
+            <td><input type="date" id="dob" name="dob" value="{{rcdob}}" {% if make_readonly %} readonly="True" {% endif %} required/></td>
+          </tr>
+          {% if make_readonly %}
+          <tr>
+            <td><label for="gender">Gender:</label></td>
+            <td><input type="text" name="gender" value="{{rcgender}}" readonly="True"></td>
+          </tr>          
+          {% else %}
+          <tr>
+            <td><label for="gender">Gender:</label></td>
+            <td>
+              <input type="radio" id="Male" name="gender" value="Male" {% if rcgender == "Male" %}checked{% endif %} required>Male
+              <input type="radio" id="Female" name="gender" value="Female" {% if rcgender == "Female" %}checked{% endif %} required>Female
+              <input type="radio" id="Other" name="gender" value="Other" {% if rcgender == "Other" %}checked{% endif %} required>Other
+            </td>
+          </tr>
+          {% endif %}   
+          <tr>
+            <td><label for="id">ID Proof:</br>(Only .jpg .jpeg .png .pdf formats</br> upto 10 MB are supported)</label></td>
+            <td>
+                <input type="file" accept=".jpg, .jpeg, .png, .pdf" id="id" name="id" max-size="10485760" required>
+            </td>
+          </tr>      
+          <tr>
+          </br></br>
+          </tr>
+          <tr>
+            <th colspan="2"><h3>Incident Details</h3></th>
+          </tr>
+          <tr>
+            <td><label for="category">Category of crime:</label></td>
+            <td>
+              <select id="category" name="category" onchange="toggleDropdown()" required>
+                <option value="select" {% if rccategory == "select" %}selected{% endif %}>--------Select one--------</option>
+                <option value="Crimes Against Women" {% if rccategory == "Crimes Against Women" %}selected{% endif %}>Crimes Against Women</option>
+                <option value="Crimes Against Children" {% if rccategory == "Crimes Against Children" %}selected{% endif %}>Crimes Against Children</option>
+                <option value="Crimes Against Senior Citizens" {% if rccategory == "Crimes Against Senior Citizens" %}selected{% endif %}>Crimes Against Senior Citizens</option>
+                <option value="Violent Crimes" {% if rccategory == "Violent Crimes" %}selected{% endif %}>Violent Crimes</option>
+                <option value="Property Crimes" {% if rccategory == "Property Crimes" %}selected{% endif %}>Property Crimes</option>
+                <option value="Financial Crimes" {% if rccategory == "Financial Crimes" %}selected{% endif %}>Financial Crimes</option>
+                <option value="Drug-Related Crimes" {% if rccategory == "Drug-Related Crimes" %}selected{% endif %}>Drug-Related Crimes</option>
+                <option value="Cybercrimes" {% if rccategory == "Cybercrimes" %}selected{% endif %}>Cybercrimes</option>
+                <option value="White-Collar Crimes" {% if rccategory == "White-Collar Crimes" %}selected{% endif %}>White-Collar Crimes</option>
+                <option value="Hate Crimes" {% if rccategory == "Hate Crimes" %}selected{% endif %}>Hate Crimes</option>
+                <option value="Organized Crime" {% if rccategory == "Organized Crime" %}selected{% endif %}>Organized Crime</option>
+                <option value="Juvenile Crimes" {% if rccategory == "Juvenile Crimes" %}selected{% endif %}>Juvenile Crimes</option>
+                <option value="Environmental Crimes" {% if rccategory == "Environmental Crimes" %}selected{% endif %}>Environmental Crimes</option>
+                <option value="Domestic Violence" {% if rccategory == "Domestic Violence" %}selected{% endif %}>Domestic Violence</option>
+                <option value="Human Trafficking" {% if rccategory == "Human Trafficking" %}selected{% endif %}>Human Trafficking</option>
+                <option value="Terrorism" {% if rccategory == "Terrorism" %}selected{% endif %}>Terrorism</option>
+                <option value="Public Order Crimes" {% if rccategory == "Public Order Crimes" %}selected{% endif %}>Public Order Crimes</option>
+                <option value="Traffic Violations" {% if rccategory == "Traffic Violations" %}selected{% endif %}>Traffic Violations</option>
+                <option value="Miscellaneous Crimes" {% if rccategory == "Miscellaneous Crimes" %}selected{% endif %}>Miscellaneous Crimes</option>
+                <option value="Other" {% if rccategory == "Other" %}selected{% endif %}>Other</option>
+              </select>
+            </td>
+          </tr>
+          <tr style="display: none;" id="hidden1">
+            <td><label for="specify">Specify:</label></td>
+            <td><input type="text" name="specify" id="specify" value="{{rcspecify}}"/></td>
+          </tr>
+          <tr style="display: none;" id="hidden">
+            <td><label for="place">Where did the Incident occur?</label></td>
+            <td><select id="place" name="place" required>
+              <option value="select" {% if rcsocial == "select" %}selected{% endif %}>--------Select one--------</option>
+              <option value="Facebook" {% if rcsocial == "Facebook" %}selected{% endif %}>Facebook</option>
+              <option value="Instagram" {% if rcsocial == "Instagram" %}selected{% endif %}>Instagram</option>
+              <option value="Snapchat" {% if rcsocial == "Snapchat" %}selected{% endif %}>Snapchat</option>
+              <option value="LinkedIn" {% if rcsocial == "LinkedIn" %}selected{% endif %}>LinkedIn</option>
+              <option value="WhatsApp" {% if rcsocial == "WhatsApp" %}selected{% endif %}>WhatsApp</option>
+              <option value="Twitter" {% if rcsocial == "Twitter" %}selected{% endif %}>Twitter(X)</option>
+              <option value="Telegram" {% if rcsocial == "Telegram" %}selected{% endif %}>Telegram</option>
+              <option value="Other" {% if rcsocial == "Other" %}selected{% endif %}>Other</option>
+            </select></td>
+          </tr>
+          <tr>
+            <td><label for="idate">Incident date:</label></td>
+            <td><input type="date" id="idate" name="idate" value="{{rcincidate}}" {% if make_readonly %} readonly="True" {% endif %} required></td>
+          </tr>
+          <tr>
+            <td><label for="itime">Approximate Incident time:</label></td>
+            <td><input type="time" id="itime" name="itime" value="{{rcincitime}}" {% if make_readonly %} readonly="True" {% endif %} required> </td>
+          </tr>
+          <tr>
+            <td><label for="onetime">Was it a one-time crime or ongoing?</label></td>
+            <td>
+              <input type="radio" id="One-time" value="One-time" name="onetime" {% if rconetime == "One-time" %}checked{% endif %} required>One-time
+              <input type="radio" id="Ongoing" value="Ongoing" name="onetime" {% if rconetime == "Ongoing" %}checked{% endif %} required>Ongoing
+            </td>
+          </tr>          
+          <tr>
+            <td><label for="moneylost">Have you lost money?</label></td>
+            <td>
+              <input type="radio" id="Yes" value="Yes" name="moneylost" {% if rclostmoney == "Yes" %}checked{% endif %} required>Yes
+              <input type="radio" id="No" value="No" name="moneylost" {% if rclostmoney == "No" %}checked{% endif %} required>No
+            </td>
+          </tr>          
+          <tr>
+            <td colspan="2"><label><b>Incident address:</b></label></td>
+          </tr>
+          <tr>
+            <td><label for="street">Street:</label></td>
+            <td><input type="text" id="street" name="street" value="{{rcstreet}}" {% if make_readonly %} readonly="True" {% endif %} required></td>
+          </tr>
+          <tr>
+            <td><label for="area">Area:</label></td>
+            <td><input type="text" id="area" name="area" value="{{rcarea}}" {% if make_readonly %} readonly="True" {% endif %} required></td>
+          </tr>
+          <tr>
+            <td><label for="city">City:</label></td>
+            <td><input type="text" id="city" name="city" value="{{rccity}}" {% if make_readonly %} readonly="True" {% endif %} required></td>
+          </tr>
+          <tr>
+            <td><label for="state">State:</label></td>
+            <td><input type="text" id="state" name="state" value="{{rcstate}}" {% if make_readonly %} readonly="True" {% endif %} required></td>
+          </tr>
+          <tr>
+            <td><label for="desc">
+              Explain in detail what happened?</br>
+              (In max 500 words)
+            </label></td>
+            <td><textarea id="desc" name="desc" required>{{rcdetail}}</textarea></td>
+          </tr>
+          <tr>
+            <td><label for="weapon">Were there any weapons involved?</label></td>
+            <td>
+              <input type="radio" id="Yes" value="Yes" name="weapon" {% if rcweapon == "Yes" %}checked{% endif %} required>Yes
+              <input type="radio" id="No" value="No" name="weapon" {% if rcweapon == "No" %}checked{% endif %} required>No
+            </td>
+          </tr>          
+          <tr>
+            <th colspan="2"><h3>Suspect Information(If Known)</h3></th>
+          </tr>
+          <tr>
+            <td><label for="sidentity">Do you know the identity of suspect(s)?</label></td>
+            <td>
+              <input type="radio" id="Yes" value="Yes" name="sidentity" {% if rcidentity == "Yes" %}checked{% endif %} required>Yes
+              <input type="radio" id="No" value="No" name="sidentity" {% if rcidentity == "No" %}checked{% endif %} required>No
+            </td>
+          </tr>          
+          <tr>
+            <td><label for="sdesc">
+              Can you provide a description of </br>the suspect(s)? 
+              (Age, gender, physical </br>appearance, clothing, etc.)</br>
+              (In max 1000 words)</label></td>
+            <td><textarea id="sdesc" name="sdesc"> {{rcdesc}}</textarea></td>
+          </tr>
+          <tr>
+            <td><label for="sbank">
+              If digital fraud, can you provide </br> Bank account details/UPI ID/</br>
+              Transaction ID/Phone number of suspect?</label></td>
+            <td><input type="text" id="sbank" name="sbank" value="{{rcbank}}"></td>
+          </tr>
+          <tr>
+            <td><label for="sevidence">
+              Do you have any evidence or documentation</br>
+               related to the incident? </br>(Photos, videos, documents, etc. upto 20 MB)</label></td>
+            <td><input type="file" accept=".jpg, .jpeg, .png, .pdf .mp4 .mp3 .doc"  id="sevidence" 
+            name="sevidence" max-size="20971520"></td>
+          </tr>
+          <tr>
+            <td><label for="addinfo">
+              Is there anything else you would like</br>
+              to add that may be relevant to the incident?</br>
+              (In max 1000 words)</label></td>
+            <td><textarea id="addinfo" name="addinfo" >{{rcextra}}</textarea></td>
+          </tr>
+          <tr>
+            <td colspan="2" style="text-align: center">
+              <button type="submit" style="width: 100px">Next</button>
+            </td>
+          </tr>
+        </table>
+        </form>
+      </div>
+    </div>
+    <footer class="footer">
+      <p>&copy; 2023 Crime Data Analysis</p>
+    </footer>
+    <script>
+      function toggleSidePanel() {
+        var sidePanel = document.getElementById("sidePanel");
+        var dotsContainer = document.getElementById("dotsContainer");
+        var closeIcon = document.querySelector(".close-icon");
+        if (sidePanel.style.right === "-350px") {
+          sidePanel.style.right = "0";
+          dotsContainer.style.display = "none"; // Hide the dots when side panel == open
+          closeIcon.style.display = "block"; // Show the close icon
+        } else {
+          sidePanel.style.right = "-350px";
+          dotsContainer.style.display = "flex"; // Show the dots when side panel == closed
+          closeIcon.style.display = "none"; // Hide the close icon
+        }
+      }
+      function toggleDropdown() {
+        var mainDropdown = document.getElementById("category");
+        var dependentDropdown = document.getElementById("hidden");
+        var dependentText = document.getElementById("hidden1")
+
+        // Check the selected option of the main dropdown
+        var selectedOption = mainDropdown.options[mainDropdown.selectedIndex].value;
+
+        // Check if the selected option == the one that triggers showing the dependent dropdown
+        if (selectedOption === "Cybercrimes") {
+          dependentDropdown.style.display = "block";
+          dependentText.style.display = "none";
+        } 
+        else if(selectedOption == "Other")
+        {
+          dependentText.style.display = "block";
+          dependentDropdown.style.display = "none";
+        }
+        else {
+          dependentDropdown.style.display = "none";
+          dependentText.style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>

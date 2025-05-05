@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News Page</title>
+    {% load static %}
+    <link
+      href="{% static 'CSS/article.css' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <img
+        src="{% static 'Images/gujaratpolice.png' %}"
+        alt="Logo"
+        class="logo"
+      />
+      <div class="title">
+        <h1>Crime Data Analysis</h1>
+        <h2>Govt. of Gujarat</h2>
+      </div>
+      <div class="menu-icon" onclick="toggleSidePanel()">
+        <div class="dots-container">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="side-panel" id="sidePanel">
+      <div class="close-icon" onclick="toggleSidePanel()">X</div>
+      <!-- Close icon -->
+      <a href="index">Home</a>
+      <a href="news">News</a>
+      <a href="reportcrime">Report a crime</a>
+      <a href="dashboard">My Profile</a>
+      <a href="contactus">Contact Us</a>
+      <a href="help">Help</a>
+    </div>
+
+    <div class="container">
+      <div class="news-article">
+        {% for detail in indarticle %}
+        <h2 class="news-title">{{detail.title}}</h2>
+        <p class="news-meta">
+          Published on {{detail.pubdate}} by {{detail.author}}
+        </p>
+
+        <div class="slider">
+          {% if detail.img1 %}
+          <div><img src="media/{{detail.img1}}" alt="Image 1" /></div>
+          {% endif %} {% if detail.img2 %}
+          <div><img src="media/{{detail.img2}}" alt="Image 2" /></div>
+          {% endif %} {% if detail.img3 %}
+          <div><img src="media/{{detail.img3}}" alt="Image 3" /></div>
+          {% endif %} {% if detail.img4 %}
+          <div><img src="media/{{detail.img4}}" alt="Image 4" /></div>
+          {% endif %} {% if detail.img5 %}
+          <div><img src="media/{{detail.img5}}" alt="Image 5" /></div>
+          {% endif%}
+        </div>
+        <p class="news-content">{{detail.content}}</p>
+        {% if detail.source %}
+        <p class="news-source">Source: {{detail.source}}</p>
+        {% endif %} {% if detail.url %}
+        <p class="news-source">Source URL: {{detail.url}}</p>
+        {% endif %} {% endfor %}
+      </div>
+    </div>
+    <footer class="footer">
+      <p>&copy; 2023 Crime Data Analysis</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".slider").slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 2000,
+          arrows: false,
+          dots: false,
+          infinite: true,
+        });
+      });
+
+      function toggleSidePanel() {
+        var sidePanel = document.getElementById("sidePanel");
+        var dotsContainer = document.getElementById("dotsContainer");
+        var closeIcon = document.querySelector(".close-icon");
+        if (sidePanel.style.right === "-350px") {
+          sidePanel.style.right = "0";
+          dotsContainer.style.display = "none"; // Hide the dots when side panel is open
+          closeIcon.style.display = "block"; // Show the close icon
+        } else {
+          sidePanel.style.right = "-350px";
+          dotsContainer.style.display = "flex"; // Show the dots when side panel is closed
+          closeIcon.style.display = "none"; // Hide the close icon
+        }
+      }
+    </script>
+  </body>
+</html>
